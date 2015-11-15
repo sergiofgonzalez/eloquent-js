@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Building HTML table with JavaScript</title>
+    </head>
+    <body>
+       <h1>Building HTML tables with JavaScript</h1>
+       <p>
+           The example loads a JSON object and arrange its contents in an HTML table.
+       </p>
+       <div id="table-here"></div>
+
+        <script>
+            var MOUNTAINS = [
+                { name: "Kilimanjaro", height: 5895, country: "Tanzania"},
+                { name: "Everest", height: 8848, country: "Nepal"}  
+            ];
+            
+            function buildTable(tableObj) {
+                var tableKeys = [];
+                function buildTableHeader(rowData) {
+                    var trNode = document.createElement("tr");                    
+                    rowData.forEach(function (cellData) {
+                        tableKeys.push(cellData);
+                        var cellNode = trNode.appendChild(document.createElement("th"));
+                        cellNode.appendChild(document.createTextNode(cellData));
+                    });
+                    return trNode;
+                };
+                
+                function buildTableRow(row) {
+                    var trNode = document.createElement("tr");
+                    tableKeys.forEach(function (tableKey) {
+                        var cellNode = trNode.appendChild(document.createElement("td"));
+                        var data = row[tableKey];
+                        cellNode.appendChild(document.createTextNode(data));
+                        if (typeof data === "number") {
+                            cellNode.style.textAlign = "right";
+                        } 
+                    });
+                    return trNode;
+                }
+                
+                var tableNode = document.createElement("table");
+                tableNode.border = 1;
+                tableNode.style.width = "100%";
+                
+                /* header row */
+                tableNode.appendChild(buildTableHeader(Object.keys(MOUNTAINS[0])));
+                
+                /* subsequent data rows */
+                MOUNTAINS.forEach(function (rowData) {
+                    tableNode.appendChild(buildTableRow(rowData));
+                });
+                               
+                return tableNode;
+            }
+            
+            var insertionNode = document.getElementById("table-here");
+            insertionNode.appendChild(buildTable(MOUNTAINS));
+        </script>        
+    </body>
+</html>   

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Debouncing</title>
+  </head>
+  <body>
+    <h1>Debouncing</h1>
+    <textarea placeholder="Type something here"></textarea>
+    <p id="len">0 characters.</p>
+    <script>
+      var textarea = document.querySelector("textarea");
+      var p = document.querySelector("#len");
+      var timeout;
+      textarea.addEventListener("keydown", function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+          p.textContent = textarea.textLength + " character" + (textarea.textLength === 1? "." : "s.");
+          console.log("You stopped typing. So the length is updated.");
+        }, 500);
+      });
+    </script>
+</html>

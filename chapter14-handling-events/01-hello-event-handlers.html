@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello Event Handlers</title>
+  </head>
+  <body>
+    <p>Click on this document to activate the handler function</p>
+    <p>
+      <button>Click me</button>
+    </p>
+    <p>
+      <a href="#">One-time event</a>
+    </p>
+    <script>
+      addEventListener("click", function() {
+        console.log("The document has been clicked!!")
+      });
+
+      var button = document.querySelector("button");
+      button.addEventListener("click", function() {
+        console.log("The button has been clicked");
+      });
+
+      var link = document.querySelector("a");
+      link.addEventListener("click", once);
+
+      function once() {
+        console.log("The link has been clicked on!");
+        console.log("Now removing the listener");
+        link.removeEventListener("click", once);
+      }
+    </script>
+  </body>
+</html>

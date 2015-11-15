@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Working with timeouts</title>
+  </head>
+  <body>
+    <h1>Working with timeouts</h1>
+    <p>
+      Remaining Time: <p id="counter"></p>
+    </p>
+    <button>Stop</button>
+    <script>
+      var counter = document.querySelector("#counter");
+      counter.textContent = "15";
+      var clock = setInterval(function() {
+        if (counter.textContent > 0) {
+          counter.textContent = Number(counter.textContent) - 1;
+        } else {
+          counter.textContent = "Booom!";
+          clearInterval(clock);
+        }
+      }, 1000);
+
+      var button = document.querySelector("button");
+      button.addEventListener("click", function() {
+        clearInterval(clock);
+      });
+    </script>
+</html>

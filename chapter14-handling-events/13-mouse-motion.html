@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mouse motion</title>
+    <style>
+      #bar {
+        background: orange;
+        width: 60px;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Drag the bar to change its width:
+      <div id="bar"></div>
+    </p>
+    <script>
+      var lastX;
+      var rect = document.querySelector("div");
+      rect.addEventListener("mousedown", function(event) {
+        if (event.which === 1) {
+          lastX = event.pageX;
+          addEventListener("mousemove", moved);
+          event.preventDefault();
+        }
+      });
+
+      function buttonPressed(event) {
+        if (event.buttons === null) {
+          return event.which != 0;
+        } else {
+          return event.buttons != 0;
+        }
+      }
+
+      function moved(event) {
+        if (!buttonPressed(event)) {
+          removeEventListener("mousemove", moved);
+        } else {
+          var dist = event.pageX - lastX;
+          var newWidth = Math.max(10, rect.offsetWidth + dist);
+          rect.style.width = newWidth + "px";
+          lastX = event.pageX;
+        }
+      }
+    </script>
+</html>

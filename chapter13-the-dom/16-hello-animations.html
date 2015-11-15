@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello Animations</title>
+    </head>
+    <body>
+        <h1>Hello Animations</h1>
+        <p style="text-align: center">
+            <img src="img/perry.png" style="position: relative">
+        </p>
+        <script>
+            var img = document.querySelector("img");
+            var angle = 0, lastTime = null;
+            
+            function animate(time) {
+                if (lastTime != null) {
+                    angle += (time - lastTime) * 0.001;
+                }
+                lastTime = time;
+                img.style.top = (Math.sin(angle) * 20) + "px";
+                img.style.left = (Math.cos(angle) * 200) + "px";
+                requestAnimationFrame(animate);
+            }
+            requestAnimationFrame(animate);
+        </script>        
+    </body>       
+</html>

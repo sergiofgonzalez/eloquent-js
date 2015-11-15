@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Image Stalker</title>
+  </head>
+  <body>
+    <h1>Image Stalker</h1>
+    <p>
+      The penguin image will follow the mouse pointer wherever it goes.
+    </p>
+      <img src="img/pengo.jpg">
+    <script>
+      var img = document.querySelector("img");
+      img.style.position = "absolute";
+
+      addEventListener("mousemove", function(event) {
+        img.style.left = event.pageX + "px";
+        img.style.top = event.pageY + "px";
+      });
+    </script>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, paths</title>
+  </head>
+  <body>
+    <h1>Hello, paths</h1>
+    <p>Before canvas.</p>
+    <canvas></canvas>
+    <p>After canvas.</p>
+    <script>
+      "use strict";
+      var context = document.querySelector("canvas").getContext("2d");
+      context.beginPath();
+      for (var y = 10; y < 100; y += 10) {
+        context.moveTo(10, y);
+        context.lineTo(90, y);
+      }
+      context.stroke();
+    </script>
+  </body>
+</html>

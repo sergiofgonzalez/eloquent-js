@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Controlling Propagation</title>
+  </head>
+  <body>
+    <p>
+      <button>Click me!</button>
+    </p>
+    <script>
+      document.querySelector("p")
+        .addEventListener("mousedown", function(evt) {
+          console.log("Paragraph received an event of type:", evt.type);
+        });
+
+      document.querySelector("button")
+        .addEventListener("mousedown", function(evt) {
+          console.log("Button received a mousedown event");
+          if (evt.which === 3) {
+            console.log("Right button clicked: preventing further propagation");
+            evt.stopPropagation();
+          }
+        });
+    </script>
+</html>

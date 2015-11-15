@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, http request helper promises</title>
+  </head>
+  <body>
+    <h1>Hello, http request helper promises</h1>
+    <h2>At the time of writing, this example only works on Firefox</h2>
+    <p>Have a look at the console</p>
+    <script>
+      "use strict";
+
+      function httpRequest(url) {
+        return new Promise(function(succeed, fail) {
+          var req = new XMLHttpRequest();
+          req.open("GET", url, true);
+          req.addEventListener("load", function() {
+            if (req.status < 400) {
+              succeed(req.responseText);
+            } else {
+              fail(new Error("Request failed:", req.statusText));
+            }
+          });
+          req.addEventListener("error", function() {
+            fail(new Error("Network error"));
+          });
+          req.send(null);
+        });
+      }
+
+
+      httpRequest("example/fruit.json")
+        .then(function(content) {
+          console.log("async request has completed: ", content);
+        }, function(error) {
+          console.log("Failed to fetch data:", error);
+        });
+
+        httpRequest("example/non-existent.json")
+          .then(function(content) {
+            console.log("async request has completed: ", content);
+          }, function(error) {
+            console.log("Failed to fetch data:", error);
+        });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Text</title>
+  </head>
+  <body>
+    <h1>Hello, Text</h1>
+    <p>Before canvas.</p>
+    <canvas></canvas>
+    <p>After canvas.</p>
+    <script>
+      "use strict";
+      var context = document.querySelector("canvas").getContext("2d");
+      context.font = "28px Georgia";
+      context.fillStyle = "fuchsia";
+      context.fillText("I can draw text, too!", 10, 50);
+    </script>
+  </body>
+</html>

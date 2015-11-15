@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Focus events on the window object</title>
+  </head>
+  <body>
+    <h1>Focus events on the window object</h1>
+    <p id="status"></p>
+    <script>
+      var statusNode = document.querySelector("#status");
+      addEventListener("focus", function() {
+        statusNode.textContent = "The document is active";
+      });
+      addEventListener("blur", function() {
+        statusNode.textContent = "The document is not currently active";
+      });
+    </script>
+</html>

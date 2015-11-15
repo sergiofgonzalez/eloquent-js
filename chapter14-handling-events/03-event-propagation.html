@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Event Propagation</title>
+  </head>
+  <body>
+    <h1>Event Propagation</h1>
+    <p id="paragraph-one">
+      <button>Click me!</button>
+    <p>
+    <p id="paragraph-two">
+      <button id="btn2">Btn2!</button>
+    </p>
+
+    <p id="paragraph-three">
+      <button id="btn3">Btn3!</button>
+    </p>
+
+    <script>
+      var p1 = document.getElementById("paragraph-one");
+      p1.addEventListener("click", function() {
+        console.log("The paragraph 1 has been clicked on");
+      });
+
+      document.getElementById("paragraph-two")
+        .addEventListener("click", function() {
+          console.log("The paragraph-two has been clicked");
+        });
+
+      document.getElementById("btn2")
+        .addEventListener("click", function() {
+          console.log("The btn2 has been clicked");
+        });
+
+      addEventListener("click", function(evt) {
+        console.log("The window has received a click event originated on ", evt.target);
+      });
+
+      document.getElementById("paragraph-three")
+        .addEventListener("click", function() {
+          console.log("The paragraph-three has been clicked");
+        });
+
+      document.getElementById("btn3")
+        .addEventListener("click", function(evt) {
+          console.log("The btn3 has been clicked, and the propagation has been stopped");
+          evt.stopPropagation();
+        });
+    </script>
+  </body>
+</html>

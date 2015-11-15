@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Web worker Technology</title>
+  </head>
+  <body>
+    <h1>Web worker Technology</h1>
+    <script>
+      var squareWorker = new Worker("code/squareworker.js");
+      squareWorker.addEventListener("message", function(event) {
+        console.log("The worker has responded:", event.data);
+      });
+
+      squareWorker.postMessage(10);
+      squareWorker.postMessage(24);
+    </script>
+</html>

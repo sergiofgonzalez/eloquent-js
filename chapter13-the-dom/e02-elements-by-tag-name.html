@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Elements by tag name</title>
+  </head>
+  <body>
+    <h1>Elements by tag name</h1>
+    <p>
+      This is a simple HTML page that includes a paragraph with some child nodes.
+      This is a <a href="/path/to/link1">link</a>.
+      <p>
+        This is a paragraph inside the paragraph.
+        And this is a <a href="/path/to/link2">link</a> inside the inner paragraph.
+        <img src="img/pengo.jpg">
+      </p>
+    </p>
+    <script>
+      /* This is the real one */
+      var linkNodes = document.body.getElementsByTagName("a");
+      printNodes(linkNodes);
+      
+      var linkNodes2 = getElementsByTagName(document.body, "a");
+      printNodes(linkNodes2);
+      
+      printSeparator();
+      var imgNodes = document.body.getElementsByTagName("img");
+      printNodes(imgNodes);
+      
+      var imgNodes2 = document.body.getElementsByTagName("img");
+      printNodes(imgNodes2);
+      
+      
+      printSeparator();
+      var pNodes = document.body.getElementsByTagName("p");
+      printNodes(pNodes);
+      
+      var pNodes2 = document.body.getElementsByTagName("p");
+      printNodes(pNodes2);
+            
+      function getElementsByTagName(node, tagName) {
+        function traverseRecursive(node) {
+          if (!node) {
+            return;
+          } else {
+            if (node.tagName === tagNameUpper) {
+              matchingNodes.push(node);
+            }
+              
+            Array.prototype.forEach.call(node.childNodes, function(childNode) {
+              if (childNode.nodeType === document.ELEMENT_NODE) {
+                traverseRecursive(childNode);  
+              }                
+            });                          
+          }
+        }
+
+        var matchingNodes = [];
+        var tagNameUpper = tagName.toUpperCase();
+        traverseRecursive(node);
+        
+        return matchingNodes;
+      }
+      
+      function printNodes(nodes) {
+        Array.prototype.forEach.call(nodes, function(node, index) {
+          console.log(index + ":=" + node);  
+        });
+      }    
+      
+      function printSeparator() {
+        console.log("======================================");
+      }  
+    </script>
+  <body>
+</html>

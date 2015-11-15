@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, http request helper fun</title>
+  </head>
+  <body>
+    <h1>Hello, http request helper fun</h1>
+    <h2>At the time of writing, this example only works on Firefox</h2>
+    <p>Have a look at the console</p>
+    <script>
+      "use strict";
+
+      function httpRequest(url, callback) {
+        var req = new XMLHttpRequest();
+        req.open("GET", url, true);
+        req.addEventListener("load", function() {
+          if (req.status < 400) {
+            callback(req.responseText);
+          } else {
+            callback(null, new Error("Request failed:", req.statusText));
+          }
+        });
+        req.addEventListener("error", function() {
+          callback(null, new Error("Network error"));
+        });
+        req.send(null);
+      }
+
+
+      httpRequest("example/non-existent.json", function(content, error) {
+        if (!error) {
+          console.log("async request has completed!!!", content);
+        } else {
+          console.log("Failed to fetch 'non-existent.json'" + error);
+        }
+      });
+
+      httpRequest("example/fruit.json", function(content, error) {
+        if (!error) {
+          console.log("async request has completed!!!", content);
+        } else {
+          console.log("Failed to fetch 'fruit.json'" + error);
+        }
+      });
+
+    </script>
+  </body>
+</html>

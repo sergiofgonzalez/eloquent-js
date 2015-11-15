@@ -1,0 +1,14 @@
+{
+    "node": true,       // Node variables
+    "bitwise": true,    // prohibit use of ^, |, & bitwise operators
+    "camelcase": true,  // force camel-casing for all variable names
+    "curly": true,      // force curly braces around blocks in loops and conditionals
+    "eqeqeq": true,     // prohibit the use of == and != in favor or === and !==
+    "immed": true,      // prohibit the use of immediate function without wrapping them in parentheses (function())();
+    "newcap": true,     // force capitalization of Constructors
+    "nonew": true,      // prohibit use of Constructors only for its side-effects new Ctor();
+    "quotmark": true,   // don't care if ' ' or " " but be enforce consistency
+    "undef": true,      // prohibit the use of undefined variables
+    "unused": true,     // prohibit the definition of unused variables
+    "strict": true      // require strict mode
+}

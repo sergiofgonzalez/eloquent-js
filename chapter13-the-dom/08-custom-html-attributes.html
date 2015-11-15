@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Custom HTML Attributes</title>
+	</head>
+	<body>
+		<h1>Custom HTML Attributes</h1>
+		<p data-classification="secret">The launch code is 123456</p>
+		<p data-classification="unclassified">I have two feet</p>
+	</body>
+	<script>
+		var paragraphs = document.body.getElementsByTagName("p");
+		Array.prototype.forEach.call(paragraphs, function (paragraph) {
+			if (paragraph.getAttribute("data-classification") === "secret") {
+				paragraph.parentNode.removeChild(paragraph);
+			}
+		});
+	</script>
+</html>

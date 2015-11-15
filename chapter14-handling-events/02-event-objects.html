@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Event Objects</title>
+  </head>
+  <body>
+    <h1>Event Objects</h1>
+    <p>
+      <button>Click me!</button>
+    </p>
+    <script>
+      var button = document.querySelector("button");
+      button.addEventListener("click", function(event) {
+        console.log("event:", event);
+        console.log("event.type:", event.type);
+        if (event.which === 1) {
+          console.log("Left button was used");
+        } else if (event.which === 2) {
+          console.log("Middle button was used");
+        } else if (event.which === 3) {
+          console.log("Right button was used");
+        }
+      });
+    </script>
+  </body>
+</html>

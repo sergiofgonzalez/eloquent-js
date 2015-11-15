@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, fractal</title>
+  </head>
+  <body>
+    <h1>Hello, fractal</h1>
+    <p>Before canvas.</p>
+    <canvas width = "600" height = 300></canvas>
+    <p>After canvas.</p>
+    <script>
+      "use strict";
+      var context = document.querySelector("canvas").getContext("2d");
+      function branch(length, angle, scale) {
+        context.fillRect(0, 0, 1, length);
+        if (length < 8) {
+          return;
+        }
+        context.save();
+        context.translate(0, length);
+        context.rotate(-angle);
+        branch(length * scale, angle, scale);
+        context.rotate(2 * angle);
+        branch(length * scale, angle, scale);
+        context.restore();
+      }
+      context.translate(300, 0);
+      branch(60, 0.5, 0.8);
+    </script>
+  </body>
+</html>

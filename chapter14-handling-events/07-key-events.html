@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Key events</title>
+  </head>
+  <body>
+    <h1>Key events</h1>
+    <p>
+      The page background will turn dark while holding the B key.
+    </p>
+    <script>
+      addEventListener("keydown", function(event) {
+        if (event.keyCode === 66) {
+          document.body.style.background = "SlateGray";
+        }
+      });
+
+      addEventListener("keyup", function(event) {
+        if (event.keyCode === 66) {
+          document.body.style.background = "";
+        }
+      });
+
+      console.log("B =>", "B".charCodeAt(0));
+    </script>
+</html>

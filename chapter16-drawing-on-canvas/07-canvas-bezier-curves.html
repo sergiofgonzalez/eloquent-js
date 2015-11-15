@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Bezier Curves</title>
+  </head>
+  <body>
+    <h1>Hello, Bezier Curves</h1>
+    <p>Before canvas.</p>
+    <canvas></canvas>
+    <p>After canvas.</p>
+    <script>
+      "use strict";
+      var context = document.querySelector("canvas").getContext("2d");
+      context.beginPath();
+      context.moveTo(10, 90);
+      // control1 = (10, 10), control2 = (90, 10), goal = (50, 90)
+      context.bezierCurveTo(10, 10, 90, 10, 50, 90);
+      context.lineTo(90, 10);
+      context.lineTo(10, 10);
+      context.closePath();
+      context.stroke();
+    </script>
+  </body>
+</html>

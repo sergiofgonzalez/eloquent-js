@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Image</title>
+  </head>
+  <body>
+    <h1>Hello, Image</h1>
+    <p>Before canvas.</p>
+    <canvas></canvas>
+    <p>After canvas.</p>
+    <script>
+      "use strict";
+      var context = document.querySelector("canvas").getContext("2d");
+      var img = document.createElement("img");
+      img.src = "img/perry.png";
+      img.addEventListener("load", function() {
+        for (var x = 10; x < 300; x += 100) {
+          context.drawImage(img, x, 10);
+        }
+      });
+    </script>
+  </body>
+</html>

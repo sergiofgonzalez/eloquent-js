@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Preventing default behavior of an HTML element</title>
+  </head>
+  <body>
+    <h1>Preventing default behavior of an HTML element</h1>
+    <p>
+      In this example the default behavior of the following link is inhibited
+      using <code>preventDefault()</code>.
+    </p>
+    <a href="https://developer.mozilla.org">Mozilla Developer Network</a>
+    <script>
+      document.querySelector("a")
+        .addEventListener("click", function(event) {
+          console.log("The link will not work");
+          event.preventDefault();
+        });
+    </script>
+</html>

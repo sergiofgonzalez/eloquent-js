@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, async XMLHttpRequest</title>
+  </head>
+  <body>
+    <h1>Hello, async XMLHttpRequest</h1>
+    <h2>At the time of writing, this example only works on Firefox</h2>
+    <p>Have a look at the console</p>
+    <script>
+      "use strict";
+      var req = new XMLHttpRequest();
+      req.open("GET", "example/fruit.json", true);
+      req.addEventListener("load", function() {
+        console.log("async request has completed!!!");
+        var fruits = JSON.parse(req.responseText);
+        console.log(fruits.length);
+        fruits.forEach(function(fruit, index) {
+          console.log(index, ":", fruit);
+          console.log(fruit.name);
+          console.log("=======================");
+        });
+      });
+      req.send(null);
+    </script>
+  </body>
+</html>

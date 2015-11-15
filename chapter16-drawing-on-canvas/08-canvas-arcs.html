@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, arcs</title>
+  </head>
+  <body>
+    <h1>Hello, arcs</h1>
+    <p>Before canvas.</p>
+    <canvas></canvas>
+    <p>After canvas.</p>
+    <script>
+      "use strict";
+      var context = document.querySelector("canvas").getContext("2d");
+      context.beginPath();
+      context.moveTo(10, 10);
+      // control = (90, 10), goal = (90, 90), radius = 20
+      context.arcTo(90, 10, 90, 90, 20);
+      context.moveTo(10, 10);
+      // control = (90, 10), goal=(90, 90), radius = 80
+      context.arcTo(90, 10, 90, 90, 80);
+      context.stroke();
+    </script>
+  </body>
+</html>

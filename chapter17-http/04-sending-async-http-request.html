@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, async XMLHttpRequest</title>
+  </head>
+  <body>
+    <h1>Hello, async XMLHttpRequest</h1>
+    <h2>At the time of writing, this example only works on Firefox</h2>
+    <p>Have a look at the console</p>
+    <script>
+      "use strict";
+      var req = new XMLHttpRequest();
+      req.open("GET", "example/data.txt", true);
+      req.addEventListener("load", function() {
+        console.log("async request has completed!!!");
+        console.log("responseText:", req.responseText);
+        console.log("status      :", req.status);
+        console.log("statusText  :", req.statusText);
+        console.log("getResponseHeader():", req.getResponseHeader("content-type"));
+      });
+      req.send(null);
+    </script>
+  </body>
+</html>
