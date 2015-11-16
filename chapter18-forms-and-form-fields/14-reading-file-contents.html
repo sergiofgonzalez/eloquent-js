@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Reading File Contents</title>
+  </head>
+  <body>
+    <h1>Hello, Reading File Contents</h1>
+    <p>
+      Have a look at the console
+    </p>
+    <input type="file" multiple>
+    <script>
+      "use strict";
+
+      var input = document.querySelector("input");
+      input.addEventListener("change", function() {
+        Array.prototype.forEach.call(input.files, function(file) {
+          var reader = new FileReader();
+          reader.addEventListener("load", function() {
+            console.log("File", file.name, "starts with", reader.result.slice(0, 20));
+          });
+          reader.readAsText(file);
+        });
+      });
+    </script>
+  </body>
+</html>

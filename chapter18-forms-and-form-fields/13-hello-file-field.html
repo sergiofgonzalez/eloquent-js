@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, File Field</title>
+  </head>
+  <body>
+    <h1>Hello, File Field</h1>
+    <p>
+      Have a look at the console
+    </p>
+    <input type="file">
+    <script>
+      "use strict";
+
+      var input = document.querySelector("input");
+      input.addEventListener("change", function() {
+        var file;
+        if (input.files.length > 0) {
+          file = input.files[0];
+        }
+        console.log("You chose:", file.name);
+        console.log("Its size in bytes is:", file.size);
+        if (file.type) {
+          console.log("It has type", file.type);
+        }
+      });
+    </script>
+  </body>
+</html>

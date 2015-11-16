@@ -27,3 +27,27 @@ Illustrates how to work with text field properties such as `value`, `selectionSt
 
 ## 08-text-fields-events
 Illustrates how to work with `change` and `input` events on text fields by creating a counter that increments/decrements as the user interacts with the text field, and an status area in which the word to be validated is displayed when the field loses its focus.
+
+## 09-hello-checkbox
+Illustrates how to work with checkboxes. In the example, the page displays a checkbox that when clicked changes the backgroud to purple.
+
+## 10-hello-radio
+Illustrates how to work with radio buttons. In the example, a radio group with three radios is displayed given the user the possibility of changing the document's background color.
+
+## 11-hello-select-multiple-select
+Illustrates how to use the select and select multiple on an HTML page.
+
+## 12-hello-select
+Illustrates how to work with `select` from JavaScript. In the example, a multiple select with bit patterns are displayed and the user can interact with it to build a number.
+
+## 13-hello-file-field
+Illustrates how to work with file fields from JavaScript. In the example, the user can interact with a file field and in the console it will be displayed some of the file properties.
+
+## 14-reading-file-contents
+Illustrates how to read a file from the user's computer using JavaScript. This is done using the `FileReader` constructor.
+
+## 15-reading-file-contents-promises
+Illustrates how to read a file from the user's computer using a Promise that wraps the `FileReader` functionality.
+
+## 16-hello-local-storage
+Illustrates how to work with `localStorage`. In the example, a count of the times the page has been accessed is incremented and maintained even when the page is refreshed or closed.

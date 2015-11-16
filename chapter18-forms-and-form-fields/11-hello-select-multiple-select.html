@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Select</title>
+  </head>
+  <body>
+    <h1>Hello, Select</h1>
+    Color:
+    <input type="radio" name="color" value="mediumpurple"> Purple
+    <input type="radio" name="color" value="lightgreen"> Green
+    <input type="radio" name="color" value="lightblue"> Blue
+    <script>
+      "use strict";
+
+      var buttons = document.getElementsByName("color");
+      function setColor(event) {
+        document.body.style.background = event.target.value;
+      }
+
+      Array.prototype.forEach.call(buttons, function(button) {
+        button.addEventListener("change", setColor);
+      });
+    </script>
+  </body>
+</html>

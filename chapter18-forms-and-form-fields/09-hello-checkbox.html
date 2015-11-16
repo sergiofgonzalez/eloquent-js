@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Checkbox</title>
+  </head>
+  <body>
+    <h1>Hello, Checkbox</h1>
+    <input type="checkbox" id="purple">
+    <label for="purple">Make this page purple</label>
+    <script>
+      "use strict";
+
+      var checkbox = document.querySelector("#purple");
+      checkbox.addEventListener("change", function() {
+        document.body.style.background = checkbox.checked ? "mediumpurple" : "";
+      });
+    </script>
+  </body>
+</html>
