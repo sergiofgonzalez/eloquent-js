@@ -8,10 +8,10 @@
     <input type="text">
     <script>
       document.querySelector("input").focus();
-      console.log(document.activeElement.tagName);
+      console.log(document.activeElement.tagName); // -> INPUT
 
       document.querySelector("input").blur();
-      console.log(document.activeElement.tagName);
+      console.log(document.activeElement.tagName); // -> BODY
     </script>
   </body>
 </html>
