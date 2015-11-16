@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, JavaScript in Forms</title>
+  </head>
+  <body>
+    <h1>Hello, JavaScript in Forms</h1>
+    <p>
+      Have a look at the console.
+    </p>
+    <form action="example/submit.html">
+        Name: <input type="text" name="value"><br>
+        <button type="submit">Save</button>
+    </form>
+    <script>
+      "use strict";
+
+      var form = document.querySelector("form");
+      form.addEventListener("submit", function(event) {
+        console.log("Saving value", form.elements.value.value);
+        event.preventDefault();
+      });
+    </script>
+  </body>
+</html>

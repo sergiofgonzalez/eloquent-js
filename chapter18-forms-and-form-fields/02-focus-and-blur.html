@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Focus and Blur</title>
+  </head>
+  <body>
+    <h1>Focus and Blur</h1>
+    <input type="text">
+    <script>
+      document.querySelector("input").focus();
+      console.log(document.activeElement.tagName);
+
+      document.querySelector("input").blur();
+      console.log(document.activeElement.tagName);
+    </script>
+  </body>
+</html>

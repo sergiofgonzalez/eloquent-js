@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Focus and Blur</title>
+  </head>
+  <body>
+    <h1>Focus and Blur</h1>
+    <p>
+      The following field is configured with the <code>autofocus</code>
+      attribute that makes it the default target for keyboard events.
+      Without that attribute, the body element would be the one with focus.
+    </p>
+    <input type="text" autofocus tabindex=1>
+    <a href=".">(help)</a>
+    <input type="text" autofocus tabindex=2>
+    <button onclick="console.log('ok')" tabindex=3>OK</button>
+  </body>
+</html>
