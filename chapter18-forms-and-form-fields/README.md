@@ -51,3 +51,20 @@ Illustrates how to read a file from the user's computer using a Promise that wra
 
 ## 16-hello-local-storage
 Illustrates how to work with `localStorage`. In the example, a count of the times the page has been accessed is incremented and maintained even when the page is refreshed or closed.
+
+## 17-local-storage-note-keeping
+Illustrates how to work with `localStorage`. In the example, a simple and buggy Note Keeping application is developed.
+
+## e01-javascript-workbench
+Build an interface that allows people to type and run pieces of JavaScript code.
+Put a button next to a `<textarea>` field, which, when pressed, uses the Function constructor to wrap the text in a function and call it. Convert the return value of the function, or any error raised, to a string and display it after the text field.
+
+## e02-autocompletion
+Extend a text field so that when the user types, a list of suggested values is shown below the field. You have an array of possible values available and should show those that start with the text that was typed. When a suggestion is clicked, replace the text field's current value with it.
+
+## e03-imdb-cast-fixing
+As a user, i want that when i paste the cast from imdb it's formatted as in:
+```
+actor...character
+```
+In an exercise from a previous chapter, i built a function that does the formatting.

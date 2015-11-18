@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript Workbench</title>
+  </head>
+  <body>
+    <h1>A JavaScript workbench</h1>
+    <textarea style="width: 100%; height: 10em"></textarea>
+    <button id="btnRun">Run</button>
+    <script>
+      "use strict";
+
+      var runButton = document.querySelector("#btnRun");
+      var textarea = document.querySelector("textarea");
+      runButton.addEventListener("click", function() {
+        var resultDiv = document.createElement("div");
+        var result;
+        try {
+          var fn = new Function("", textarea.value);
+          result = fn();
+        } catch (error) {
+          result = error.message;
+          resultDiv.style.color = "red";
+        }
+        resultDiv.textContent = String(result);
+        document.body.appendChild(resultDiv);
+      });
+    </script>
+  </body>
+</html>
