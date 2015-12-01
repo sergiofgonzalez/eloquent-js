@@ -62,7 +62,7 @@ Put a button next to a `<textarea>` field, which, when pressed, uses the Functio
 ## e02-autocompletion
 Extend a text field so that when the user types, a list of suggested values is shown below the field. You have an array of possible values available and should show those that start with the text that was typed. When a suggestion is clicked, replace the text field's current value with it.
 
-## e03-imdb-cast-fixing
+## e03-imdb-cast-fixer
 As a user, i want that when i paste the cast from imdb it's formatted as in:
 ```
 actor...character
