@@ -13,3 +13,9 @@ Writing a `range` and `sum` functions, as an example of how to work with arrays 
 
 ## [e02-reverse-array](./e02-reverse-array/)
 Writing `reverseArray` and `reverseArrayInPlace` functions to invert the order in which elements appear in an array.
+
+## [e03-array-to-list](./e03-array-to-list/)
+Writing a list in JavaScript and a few helper methods such as `arrayToList`, `listToArray`, `prepend` and `nth`.
+
+## [e04-deep-equal](./e04-deep-equal/)
+Function that compares object by their actual properties
