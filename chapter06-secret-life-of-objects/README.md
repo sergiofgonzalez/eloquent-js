@@ -15,6 +15,9 @@ introduces the three ways in which JavaScript classes can be defined: creating y
 ### [04-hello-maps](./04-hello-maps/)
 illustrates why using plain objects as maps is a bad idea, and how this can be mitigated by either creating these objects through `Object.create(null)`, using `hasOwnProperty` or using the `Map` class (recommended).
 
+### [05-hello-polymorphism](./05-hello-polymorphism/)
+Illustrates how to override `toString` method for a class, as an example of polymorphism.
+
 
 ### Cheat Sheet
 + Function.call(this, args) &mdash; invokes a method on a given object
