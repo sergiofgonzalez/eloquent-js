@@ -1,5 +1,5 @@
 # 02 &mdash; Hello Prototypes
-> TBD
+> the concept of prototype of an object. `Object.getPrototypeOf`, `Object.prototype`, `Function.prototype` explained. Also, `Object.create` is introduced.
 
 ## Description
 
