@@ -18,6 +18,8 @@ illustrates why using plain objects as maps is a bad idea, and how this can be m
 ### [05-hello-polymorphism](./05-hello-polymorphism/)
 Illustrates how to override `toString` method for a class, as an example of polymorphism.
 
+### [06-hello-symbols](./06-hello-symbols/)
+introduces the usage of *symbols* in JavaScript and demonstrates how they can be used as properties in objects
 
 ### Cheat Sheet
 + Function.call(this, args) &mdash; invokes a method on a given object
@@ -28,3 +30,4 @@ Illustrates how to override `toString` method for a class, as an example of poly
 + Array.prototype &mdash; the prototype of arrays
 + func.prototype &mdash; a property assigned to functions that holds a plain, empty object that derives from `Object.prototype`. It can be enhanced with new properties or overwritten.
 + Object.prototype.hasOwnProperty.call &mdash; recommended way to use `hasOwnProperty` to check whether an object features a given property because it has been defined in the instance, or acquired through the prototype.
++ Symbol(str) &mdash; returns a symbol, a unique value that can be used as a property name in JavaScript objects.
