@@ -1,5 +1,5 @@
-# 01 &mdash; Hello Methods
-> introducing object methods in JavaScript and `this` for regular and arrow functions
+# 01 &mdash; Hello Methods and `this` in Functions
+> introducing object methods in JavaScript and `this` for regular and arrow functions. Also, `Function.call` is introduced.
 
 ## Description
 
