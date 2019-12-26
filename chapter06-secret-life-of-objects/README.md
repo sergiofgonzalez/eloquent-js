@@ -24,6 +24,9 @@ Introduces the usage of *symbols* in JavaScript and demonstrates how they can be
 ### [07-symbols-for-interfaces](./07-symbols-for-interfaces/)
 Introduces `Symbol.iterator` (a symbol value defined in the language), the *iterator* interface and illustrates how to create an iterable class.
 
+### [08-hello-getters-setters-and-statics](./08-hello-getters-setters-and-statics/)
+Illustrates how to define getters, setters and static properties in JavaScript.
+
 ### Cheat Sheet
 + Function.call(this, args) &mdash; invokes a method on a given object
 + Object.create(obj) &mdash; creates an object whose prototype is `obj`. Use `Object.create(null)` to create an object that does not derive from any prototype (useful when using plain objects as maps).
@@ -36,3 +39,4 @@ Introduces `Symbol.iterator` (a symbol value defined in the language), the *iter
 + Symbol(str) &mdash; returns a symbol, a unique value that can be used as a property name in JavaScript objects.
 + Symbol.iterator &mdash; an symbol value defined in the language that lets you make classes iterable by assigning an iterator implementation to that property in the custom class.
 + *Iterator* &mdash; an interface that exposes a function `next` that returns an object with a`value` and `done` properties.
++ setters, getter and statics can be defined by prefixing the corresponding method with `set`, `get` or `static`. Setters and getters are accessed like properties but hide a method call. Statics can be accessed through the class name.
