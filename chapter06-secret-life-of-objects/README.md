@@ -19,7 +19,10 @@ illustrates why using plain objects as maps is a bad idea, and how this can be m
 Illustrates how to override `toString` method for a class, as an example of polymorphism.
 
 ### [06-hello-symbols](./06-hello-symbols/)
-introduces the usage of *symbols* in JavaScript and demonstrates how they can be used as properties in objects
+Introduces the usage of *symbols* in JavaScript and demonstrates how they can be used as properties in objects
+
+### [07-symbols-for-interfaces](./07-symbols-for-interfaces/)
+Introduces `Symbol.iterator` (a symbol value defined in the language), the *iterator* interface and illustrates how to create an iterable class.
 
 ### Cheat Sheet
 + Function.call(this, args) &mdash; invokes a method on a given object
@@ -31,3 +34,5 @@ introduces the usage of *symbols* in JavaScript and demonstrates how they can be
 + func.prototype &mdash; a property assigned to functions that holds a plain, empty object that derives from `Object.prototype`. It can be enhanced with new properties or overwritten.
 + Object.prototype.hasOwnProperty.call &mdash; recommended way to use `hasOwnProperty` to check whether an object features a given property because it has been defined in the instance, or acquired through the prototype.
 + Symbol(str) &mdash; returns a symbol, a unique value that can be used as a property name in JavaScript objects.
++ Symbol.iterator &mdash; an symbol value defined in the language that lets you make classes iterable by assigning an iterator implementation to that property in the custom class.
++ *Iterator* &mdash; an interface that exposes a function `next` that returns an object with a`value` and `done` properties.
