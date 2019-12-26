@@ -27,6 +27,12 @@ Introduces `Symbol.iterator` (a symbol value defined in the language), the *iter
 ### [08-hello-getters-setters-and-statics](./08-hello-getters-setters-and-statics/)
 Illustrates how to define getters, setters and static properties in JavaScript.
 
+### [09-hello-inheritance](./09-hello-inheritance/)
+introducing the class inheritance concepts in JavaScript.
+
+### [10-hello-instanceof-operator](./10-hello-instanceof-operator/)
+Introducing the `instanceof` operator.
+
 ### Cheat Sheet
 + Function.call(this, args) &mdash; invokes a method on a given object
 + Object.create(obj) &mdash; creates an object whose prototype is `obj`. Use `Object.create(null)` to create an object that does not derive from any prototype (useful when using plain objects as maps).
@@ -40,3 +46,5 @@ Illustrates how to define getters, setters and static properties in JavaScript.
 + Symbol.iterator &mdash; an symbol value defined in the language that lets you make classes iterable by assigning an iterator implementation to that property in the custom class.
 + *Iterator* &mdash; an interface that exposes a function `next` that returns an object with a`value` and `done` properties.
 + setters, getter and statics can be defined by prefixing the corresponding method with `set`, `get` or `static`. Setters and getters are accessed like properties but hide a method call. Statics can be accessed through the class name.
++ inheritance in JavaScript classes is articulated through `extends` keyword. Superclass methods are accessed using `super` method from the derived classes.
++ instanceOf &mdash; lets you check if an object belongs to the class hierarchy of a given class
