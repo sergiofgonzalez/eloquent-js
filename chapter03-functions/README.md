@@ -5,10 +5,13 @@
 Basic notions on closures.
 
 ## [02-recursion](./02-recursion/)
-Recursion examples
+Recursion examples.
 
 ## [e01-labyrinth](./e01-labyrinth/)
-using recursion to write a program that finds an exit through a labyrinth
+using recursion to write a program that finds an exit through a labyrinth.
 
 ## [e02-8-queens](./e02-8-queens/)
-using recursion to write a program that finds a way to place 8 queens on a chess board
+using recursion to write a program that finds a way to place 8 queens on a chess board.
+
+## [e03-tower-of-hanoi](./e03-tower-of-hanoi/)
+using recursion to write a program that finds how to shift the disks to solve the Tower of Hanoi problem.
