@@ -9,4 +9,5 @@ Modules before ECMAScript modules. The program illustrates how to use an *iife* 
 ### [02-eval-and-function](./02-eval-and-function/)
 Basic illustration of `eval` and `Function` that allows you to run arbitrary code passed as a string.
 
-### [02-ecmascript-modules](./02-ecmascript-modules/)
+### [03-ecmascript-modules](./03-ecmascript-modules/)
+Illustrates ES modules in Node.js.

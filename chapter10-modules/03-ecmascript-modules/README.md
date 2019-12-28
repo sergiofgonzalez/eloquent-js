@@ -1,5 +1,5 @@
-# 02 &mdash; ECMAScript modules
-> modules before ECMAScript modules
+# 03 &mdash; ECMAScript modules
+> illustrates ES modules in Node.js
 
 ## Description
 
