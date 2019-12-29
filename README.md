@@ -8,3 +8,4 @@
 + [Chapter 6 &mdash; Secret Life of Objects](./chapter06-secret-life-of-objects/README.md)
 + [Chapter 10 &mdash; Modules](./chapter10-modules/README.md)
 + [Chapter 11 &mdash; Asynchronous Programming](./chapter11-asynchronous-programming/README.md)
++ [Chapter 13 &mdash; JavaScript and the Browser](./chapter13-javascript-and-the-browser/README.md)
