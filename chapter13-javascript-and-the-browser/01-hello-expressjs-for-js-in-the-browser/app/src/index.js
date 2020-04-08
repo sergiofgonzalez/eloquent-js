@@ -10,21 +10,20 @@ const favicon = require('serve-favicon');
 const helmet = require('helmet');
 const compression = require('compression');
 const requestLogger = require('morgan');
-const config = require('./lib/config');
 
 
 const app = express();
 
 
 /* 3rd party middleware */
-app.use(requestLogger(config('logger:request_format_in') || 'tiny', { immediate: true }));
-app.use(requestLogger(config('logger:request_format_out') || 'tiny'));
-app.use(favicon(path.join(__dirname, config('server:public') || 'public', 'favicon.ico')));
+app.use(requestLogger(process.env['LOGGER_REQUEST_FORMAT_IN'] || 'tiny', { immediate: true }));
+app.use(requestLogger(process.env['LOGGER_REQUEST_FORMAT_OUT'] || 'tiny'));
+app.use(favicon(path.join(__dirname, process.env['PUBLIC_STATIC_RESOURCES_PATH'] || 'public', 'favicon.ico')));
 app.use(helmet());
 app.use(compression());
-app.use(express.static(path.join(__dirname, config('server:public') || 'public')));
+app.use(express.static(path.join(__dirname, process.env['PUBLIC_STATIC_RESOURCES_PATH'] || 'public')));
 
 
-logger.info(`Express application started with env=${ app.get('env')}; NODE_ENV=${ config('NODE_ENV') }`);
+logger.info(`Express application started with env=${ app.get('env')}; NODE_ENV=${ process.env['NODE_ENV'] }`);
 
 module.exports = app;

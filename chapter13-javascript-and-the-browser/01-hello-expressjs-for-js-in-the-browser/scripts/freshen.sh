@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Check that jq is available in the system, otherwise stop
+hash jq > /dev/null 2>&1
+if [[ $? -ne 0 ]]; then
+  echo -e "\e[1m\e[31m\e[EError:\e[0m The command \e[1m\e[92mjq\e[0m must be available but was not found"
+  echo -e "Exiting..."
+  exit 1
+fi
+
 echo "About to freshen dependencies in the project."
 echo -e "This action \e[1m\e[31mwill\e[0m:"
 echo -e "* \e[1m\e[31mdelete\e[0m \e[1mnode_modules\e[0m from the project"

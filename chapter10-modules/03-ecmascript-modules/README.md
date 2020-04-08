@@ -5,7 +5,7 @@
 
 In 2015, the JavaScript standard introduced the ES modules. This system introduces its own, different approach to Node.js modules (which is based in CommonJS).
 
-In this system, the main concepts of dependencies and insterfaces remain the same, but the details differ. For example, the notation is now integrated into the language and you don't need to call a function like `require` and instead use the JavaScript keywords `import` and `export`.
+In this system, the main concepts of dependencies and interfaces remain the same, but the details differ. For example, the notation is now integrated into the language and you don't need to call a function like `require` and instead use the JavaScript keywords `import` and `export`.
 
 ```javascript
 // making a few modules available in the current scope
@@ -47,3 +47,13 @@ ES modules are the official standard format to package JavaScript code for reuse
 Node.js already fully supports ES modules, but provide limited interoperability between this standard module definition and CommonJS.
 
 In order to use this module definition you either have to use the extension `.mjs` or `.js` and provide the nearest `package.json` with a top-level field `"type": "module"`.
+
+Also, in your `.eslintrc.yml` file, you have to enable the module source type:
+
+```yml
+...
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+...
+```

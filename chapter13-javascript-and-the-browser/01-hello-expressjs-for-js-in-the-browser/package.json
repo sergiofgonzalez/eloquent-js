@@ -17,7 +17,7 @@
     "email": "sergio.f.gonzalez@gmail.com"
   },
   "config": {
-    "debugModules": "lib:*"
+    "debugModules": "disabled"
   },
   "license": "MIT",
   "devDependencies": {
@@ -26,12 +26,10 @@
   "dependencies": {
     "compression": "1.7.4",
     "debug": "4.1.1",
-    "ejs": "3.0.1",
+    "dotenv": "8.2.0",
     "express": "4.17.1",
-    "helmet": "3.21.2",
-    "js-yaml": "3.13.1",
-    "morgan": "1.9.1",
-    "nconf": "0.10.0",
+    "helmet": "3.22.0",
+    "morgan": "1.10.0",
     "serve-favicon": "2.5.0",
     "winston": "3.2.1"
   },

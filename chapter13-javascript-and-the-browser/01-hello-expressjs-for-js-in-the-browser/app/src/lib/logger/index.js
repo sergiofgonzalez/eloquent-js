@@ -1,5 +1,4 @@
 const debug = require('debug')('lib:logger');
-const config = require('../config');
 const { createLogger, format, transports } = require('winston');
 const { combine, timestamp, prettyPrint, colorize, printf, label, splat } = format;
 
@@ -13,7 +12,7 @@ function logger(module = '') {
 
   return createLogger({
     exitOnError: false, // do not exit after uncaught exception
-    level: config('logger:level') || 'info',
+    level: process.env['logger:level'] || 'info',
     format: loggerOptionsFormat,
     transports: [new transports.Console()]
   });
