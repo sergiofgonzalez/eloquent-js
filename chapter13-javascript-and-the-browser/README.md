@@ -1,5 +1,5 @@
 # Chapter 13 &mdash; JavaScript and the Browser
-> selected examples and exercises for chapter 13
+> selected notes, examples and exercises from chapter 13
 
 ## Notes
 
