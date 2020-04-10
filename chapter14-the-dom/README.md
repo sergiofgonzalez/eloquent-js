@@ -393,7 +393,7 @@ Practising animations and positioning.
 
 ### CSS/Styling Basics
 
-| CSS/Styling Concept &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
+| CSS/Styling Concept | Description |
 | :------------------ | :---------- |
 | `style="color: green"` | Sets the style of a given element with the given color property. |
 | `style="display: block"` | Forces the display of an inline element (such as `<strong>`) as a block element. |
