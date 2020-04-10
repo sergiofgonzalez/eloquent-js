@@ -175,12 +175,15 @@ To create element nodes, you can use `document.createElement(tag)` which creates
 ### Handling Attributes
 
 Most of the attributes can be acccessed through properties of the same name on the element's DOM object (e.g. `href` for `<a>`, `alt` for `<img>`...).
+Note that as the commonly used attribute `class`, is a reserved keyword in JavaScript, you have to access it using `className` as in `document.body.className='dark-theme'`.
+
 
 As HTML also allows you to set custom attributes on HTML elements, the methods `getAttribute()` and `setAttribute()` are available.
 
 | NOTE: |
 | :---- |
 | It is a standard practice to prefix custom attributes on HTML elements with `data-` to ensure they do not conflict with standard attributes. |
+
 
 ### Layout
 
@@ -359,6 +362,13 @@ Practising query selectors (i.e. finding elements through CSS rules).
 ### [11 &mdash; Hello, Animations and Positioning](./11-hello-animations-and-positioning/)
 Practising animations and positioning.
 
+### [e01 &mdash; Hello, HTML Table](./e01-hello-html-table/)
+Practising HTML table creation from data.
+
+### [e02 &mdash; Custom Elements By Tag Name](./e02-custom-elements-by-tag-name/)
+Practising DOM scanning by creating a custom version of `document.getElementsByTagName`.
+
+
 ## Cheat Sheet
 
 ### Javascript API for the Browser
@@ -369,6 +379,8 @@ Practising animations and positioning.
 | `document.getElementById(id)` | Returns the node whose `id` matches the given one. |
 | `document.querySelectorAll(cssRule)` | Returns a `NodeList` (an array-like **NOT** live object) containing all the elements in the document matching the given *CSS rule* . |
 | `{node}.querySelectorAll(cssRule)` | Returns a `NodeList` (an array-like **NOT** live object) containing all the child elements of the node matching the given *CSS rule* . |
+| `document.querySelector(cssRule)` | Returns the node in the document matching the given *CSS rule*. |
+| `{node}.querySelector(cssRule)` | Returns the node matching the given *CSS rule* that is a descendant of the given node. |
 | `{node}.nodeType` | Returns a code that identifies the type of the node (e.g `1` or `Node.ELEMENT_NODE` for elements, `3` or `Node.TEXT_NODE` for text nodes, `8` or `Node.COMMENT_NODE` for comments). |
 | `{node}.childNodes` | Returns a `NodeList` (an array-like live object) containing the children of the given node. |
 | `{node}.nodeValue` | Returns or sets the value of the given node as a string, or `null` for the node types for which it does not provide a value. It can be used to set/get the text of an element. |
@@ -386,6 +398,7 @@ Practising animations and positioning.
 | `{node}.offsetWidth` | Returns the width the given node takes up in pixels. |
 | `{node}.offsetHeight` | Returns the height the given node takes up in pixels. |
 | `{node}.getBoundingClientRect()` | Returns an object with `top`, `bottom`, `left` and `right` peroperties indicating the pixel positions of the sides of the element relative to the top left corner of the screen. |
+| `{node}.nodeName` | Points to a string that holds the tag name of an element. |
 | `pageXOffset` | Returns the current horizontal scroll value. |
 | `pageYOffset` | Returns the current vertical scroll value. |
 | `requestAnimationFrame(cb)` | Notifies the browser that you wish to perform an animation. It accepts a callback function that will be called when it's time to update your animation for the next repaint. The callback is passed the time at which the callback is invoked. |
