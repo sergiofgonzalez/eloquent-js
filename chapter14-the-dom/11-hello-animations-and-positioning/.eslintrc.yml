@@ -1,18 +1,14 @@
 env:
   es6: true     # needed to bring the globals such as Promise into scope
-  browser: true
+  node: true
 
 parserOptions:
   ecmaVersion: 2020
-  sourceType: module
   
 extends: 'eslint:recommended'
+
 rules:
-  indent: 
-    - error
-    - 2
-    - SwitchCase: 1
-      ignoreComments: true
+  indent: ["error", 2, { SwitchCase: 1, ignoreComments: true }]
   linebreak-style:
     - off
   no-console:

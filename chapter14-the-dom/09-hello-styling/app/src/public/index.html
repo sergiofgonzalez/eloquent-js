@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/styles1.css">
+
+    <title>Example 9 &mdash; Hello, Styling</title>
+  </head>
+  <body>
+    <p><a href=".">Normal link</a></p>
+    <p><a href="." style="color: green">Green link</a></p>
+
+    <p>
+      This text is displayed <strong>inline</strong>,
+      <strong style="display: block;">as a block</strong>, and
+      <strong style="display: none">not displayed at all</strong>.
+    </p>
+
+    <p style="color: red; border: 3px solid black" id="para">
+      This is an styled paragraph.
+    </p>
+
+    <style>
+      strong {
+        font-style: italic;
+        color: gray;
+      }
+    </style>
+    <p>
+      Now <strong>strong text</strong> is italic and gray. It has been styled through CSS specified within
+      the HTML document on a &lt;style&gt; block. 
+    </p>
+
+    <p>
+      The <strong style="font-weight: normal; color:blue">&lt;style&gt; attribute</strong> always wins! 
+    </p>
+
+    <style>
+
+      /* targets elements with class="subtle" */
+      .subtle {
+        color: gray;
+        font-size: 80%;
+      }
+
+      /* targets elements with id="header" */
+      #header {
+        background: blue;
+        color: white;
+      }
+      
+      /* targets p elements with id="main" and with class="a b" */
+      p#main.a.b {
+        margin-bottom: 20px;
+        border: 2px solid red;
+      }
+      /* targets all `<a>` elements that are direct/indirect descendants of `<p>` tags */
+      div a {
+        color: yellow;
+      }
+
+      /* targets all `<a>` elements that are direct descendants of `<p>` tags */
+      div > a {
+        color: red;
+      }
+    </style>
+
+    <p>
+      This is some <span class="subtle">subtle text</span>, which is different from the <span id="header">header rule</span>
+      and also different from the 
+        <p id="main" class="a b">other text</p>.
+    </p>
+
+    <div>
+      <a href=".">direct descendant1</a>
+      This link is a direct descendant of a p:
+      <a href=".">direct descendant</a>
+      <div>
+        indirect descendant <span><a href=".">indirect link</a></span>.
+      </div>
+    </div>
+
+
+    <!-- JavaScript-->
+    <script src="javascript/app.mjs" type="module"></script>    
+  </body>
+</html>
