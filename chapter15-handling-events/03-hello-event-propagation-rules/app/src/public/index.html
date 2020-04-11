@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/styles1.css">
+
+    <title>Example 3 &mdash; Hello, Event Propagation Rules</title>
+  </head>
+  <body>
+    <h1>Hello, Event Propagation Rules!</h1>
+
+    <dl>
+      <dt>Instructions</dt>
+      <dd>
+        A handler for <code>&quot;mousedown&quot;</code> has been defined in both the <code>&lt;p&gt;</code> and 
+        the <code>&lt;button&gt;</code>. 
+        If you click on the <code>&lt;button&gt;</code> with the <strong>left</strong> or <strong>middle</strong> button, 
+        the event will be propagated to the handler. If you click with the <strong>right</strong> button the event will 
+        not be propagated. 
+      </dd>
+      <dt>Open the console (pressing F12) as all the information is sent to the console.</dt>
+    </dl>
+
+    <p>
+      A paragraph with a <button type="button" class="btn btn-outline-primary">button</button>
+    </p>
+    
+    
+    <!-- JavaScript-->
+    <script src="javascript/app.mjs" type="module"></script>    
+  </body>
+</html>

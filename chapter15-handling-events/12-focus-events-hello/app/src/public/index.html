@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/styles1.css">
+
+    <title>Example 12 &mdash; Focus Events: Hello!</title>
+  </head>
+  <body>
+    <h1>Focus Events: Hello!</h1>
+
+    <form>
+      <div class="form-group">
+        <label for="inputName">Name</label>
+        <input type="text" class="form-control" id="inputName" placeholder="John Doe" data-help="Please insert your full name">
+      </div>
+      <div class="form-group">
+        <label for="inputAge">Age</label>
+        <input type="text" class="form-control" id="inputAge" placeholder="43" data-help="Please insert your age in years">
+      </div>
+      <div class="alert alert-secondary" id="help"></div>
+    </form>
+
+    <dl>
+      <dt>Instructions</dt>
+      <dd>
+        Interact with the form elements. Help text will be displayed for the
+        text field that currently has focus.        
+      </dd>
+    </dl>
+
+    
+    <!-- JavaScript-->
+    <script src="javascript/app.mjs" type="module"></script>    
+  </body>
+</html>
