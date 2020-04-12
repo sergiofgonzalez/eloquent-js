@@ -387,6 +387,12 @@ Illustrates how to use *Web workers*.
 ### [15 &mdash; Timer Events: Debouncing!](./15-timer-events-debouncing/)
 Illustrates how to handle `'load'` and `'beforeunload'` events.
 
+### [e01 &mdash; Balloon!](./e01-balloon/)
+An example that displays a ballon on the document and lets the user inflate it or deflate it until it blows up using by listening to `'keydown'` events.
+
+### [e02 &mdash; Mouse Trail!](./e02-mouse-trail/)
+An example that creates a very simple mousetrail by listening to `'mousemove'` events.
+
 ## Cheat Sheet
 
 ### Javascript API for the Browser
