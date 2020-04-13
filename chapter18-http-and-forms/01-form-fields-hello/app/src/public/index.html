@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- OpenIconic Icons -->
+    <link rel="stylesheet" href="stylesheets/open-iconic/font/css/open-iconic-bootstrap.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/styles1.css">
+
+    <title>Example 1 &mdash; Form Fields: Hello</title>
+  </head>
+  <body>
+    <h1>Form Fields: Hello!</h1>
+
+    <!-- Regular Input Text Field -->
+    <div class="form-group">
+      <label for="inputText1">(text)</label>
+      <input type="text" value="abc" class="form-control" id="inputText1" aria-describedby="inputText">
+    </div>
+
+    <!-- Password Text Field --> 
+    <div class="form-group">
+      <label for="inputPassword">(password)</label>
+      <input type="password" value="abc" class="form-control" id="inputPassword1" aria-describedby="inputPassword">
+    </div>
+
+    <!-- Checkboxes (checked and unchecked) -->
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="inputCheckbox1">
+      <label class="form-check-label" for="inputCheckbox1">(unchecked checkbox)</label>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="inputCheckbox2" checked>
+      <label class="form-check-label" for="inputCheckbox2">(checked checkbox)</label>
+    </div>
+
+    <!-- Radio Buttons -->
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="choice" id="inputRadio1" value="A">
+      <label class="form-check-label" for="inputRadio1">
+        A
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="choice" id="inputRadio2" value="B" checked>
+      <label class="form-check-label" for="inputRadio2">
+        B
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="choice" id="inputRadio3" value="C">
+      <label class="form-check-label" for="inputRadio3">
+        C
+      </label>
+    </div>    
+    
+    <!-- File Input -->
+    <div class="form-group">
+      <label for="inputFile1">(file)</label>
+      <input type="file" class="form-control-file" id="inputFile1">
+    </div>
+
+    <!-- TextArea: Multiline textfield -->
+    <div class="form-group">
+      <label for="textarea1">(textarea)</label>
+      <textarea class="form-control" id="textarea1" rows="3">
+        one
+        two
+        three
+      </textarea>
+    </div>
+
+    <!-- Drop-downs: single and multiple selection-->
+
+    <div class="form-group">
+      <label for="select1">(multiple select)</label>
+      <select multiple class="form-control" id="select1">
+        <option>Pancakes</option>
+        <option>Pudding</option>
+        <option>Ice cream</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="select1">(multiple select)</label>
+      <select class="form-control" id="select1">
+        <option>Pancakes</option>
+        <option>Pudding</option>
+        <option>Ice cream</option>
+      </select>
+    </div>
+
+    <!-- JavaScript-->
+    <script src="javascript/app.mjs" type="module"></script>    
+  </body>
+</html>

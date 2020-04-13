@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- OpenIconic Icons -->
+    <link rel="stylesheet" href="stylesheets/open-iconic/font/css/open-iconic-bootstrap.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/styles1.css">
+
+    <title>Example 3 &mdash; The `autofocus` attribute</title>
+  </head>
+  <body>
+    <h1>Form Fields: The <code>autofocus</code> attribute</h1>
+
+    <!-- Regular Input Text Field -->
+    <div class="form-group">
+      <label for="inputText1">(text)</label>
+      <input type="text" value="abc" class="form-control" id="inputText1" aria-describedby="inputText" autofocus>
+      <!-- Without autofocus: comment previous line and uncomment the following -->
+      <!-- <input type="text" value="abc" class="form-control" id="inputText1" aria-describedby="inputText">       -->
+    </div>
+
+    <dl>
+      <dt>Instructions</dt>
+      <dd>
+        Open the HTML page and remove the <code>autofocus</code> attribute
+        to see the behavior with and without the attribute.        
+      </dd>
+      <dt>HINT</dt>
+      <dd>
+        You will be able to type into the textfield as soon as the page is loaded
+        when the attribute is set. When it isn't used, you will have to click on the textfield
+        first, so that it gets the focus.
+      </dd>
+    </dl>
+
+    <!-- JavaScript-->
+    <script src="javascript/app.mjs" type="module"></script>    
+  </body>
+</html>

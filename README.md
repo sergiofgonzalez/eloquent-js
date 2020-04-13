@@ -11,3 +11,4 @@
 + [Chapter 13 &mdash; JavaScript and the Browser](./chapter13-javascript-and-the-browser/README.md)
 + [Chapter 14 &mdash; The Document Object Model](./chapter14-the-dom/README.md)
 + [Chapter 15 &mdash; Handling Events](./chapter15-handling-events/README.md)
++ [Chapter 18 &mdash; HTTP and Forms](./chapter18-http-and-forms/README.md)
