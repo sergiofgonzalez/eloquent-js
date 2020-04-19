@@ -216,7 +216,28 @@ All form fields can be disabled through their `disabled` attribute:
 <button disabled>Button that can't be clicked</button>
 ```
 ### The `form` element
+When a field is contained in a `<form>` element, its DOM element will have a `form` property linking back to the form's DOM element. In turn, the `<form>` element will have a property called `elements` that contains an array-like collection of the fields inside it.
 
+The `name` attribute of a form field determines the way its value will be identified when the form is submitted. It can also be used as a property name when accessing the form's `elements` property, which acts both as an *array-like* and *map-like* (accessed by name).
+
+```html
+<form>
+  Name: <input type="text" name="name"><br>
+  Name: <input type="password" name="password"><br>
+  <button type="submit">Log in</button>
+</form>
+<script>
+  const form = document.querySelector('form');
+  console.log(form.elements[1].type); // -> password
+  console.log(form.elements.name.form == form); // -> true
+</script>
+```
+
+A button with a `type="submit"` when pressed cause the form to be submitted. Pressing *ENTER* when a form field is focused has the same effect.
+
+Submitting a form means the browser will navigate to the page indicated by the form's action attribute, using either a `GET` or a `POST`. Before doing so, a `submit` event will be fired. You can handle this event from JavaScript to prevent this default behavior.
+
+Intercepting `'submit'` events in JavaScript has very interesting use cases such as validating forms before being submitted, or even sending the information to the server without reloading the page.
 
 ## Examples and Exercises
 
@@ -234,6 +255,9 @@ Illustrates the `autofocus` attribute.
 
 ### [05 &mdash; Form Fields: `disabled` attribute](./05-form-fields-disabled/)
 Illustrates the `disabled` attribute.
+
+### [06 &mdash; Form Fields: Hello, `<form>`](./06-form-fields-hello-form/)
+Illustrates several concepts about the `<form>` as a whole such as using the `form.elements` property and the registration of an event listener for the `submit` event.
 
 ## Cheat Sheet
 
@@ -283,7 +307,9 @@ Illustrates the `disabled` attribute.
 | `{worker}.postMessage(data)` | Sends a `'message'` event to a worker. The event `'data'` property will include the given information. |
 | `encodeURIComponent(textToEncode)` | URI encodes the given information (for query string encoding). |
 | `decodeURIComponent(textToDecode)` | URI decodes the given encoded information (for query string decoding). |
-| `fetch(uri, options)` | Returns a promise that resolves to a *Response* object holding information about the server's response, such as its status code and headers. The headers are wrapped in a *map-like* object that treats its keys as case-insensitive. It features a `text()` and `json()` methods that returns a promise to the response body in text or JSON. The options object can be used to send an specific method (like `POST`) setting up specific headers or sending a body. See https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options for details. | 
+| `fetch(uri, options)` | Returns a promise that resolves to a *Response* object holding information about the server's response, such as its status code and headers. The headers are wrapped in a *map-like* object that treats its keys as case-insensitive. It features a `text()` and `json()` methods that returns a promise to the response body in text or JSON. The options object can be used to send an specific method (like `POST`) setting up specific headers or sending a body. See https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options for details. |
+| `{form}.elements` | Returns an object with the form fields that can be accessed as an array and also as a map. |
+| `{node}.form` | For a field in a form, returns the form element on which the field is enclosed. |
 
 ### CSS/Styling Basics
 
@@ -368,7 +394,7 @@ Illustrates the `disabled` attribute.
 |              | | `setInterval(cb, delayMillis, arg1, arg2, ...)` | Schedules a callback to be invoked repeatedly according to the given frequency details. Returns an *intervalId* that can be used to cancel the timer. |
 |              | | `clearInterval(intervalid)` | De-schedules a previous call to `setInterval()`. |
 | Form Field Events | `'change'` |  | Fired whenever the value of a form field changes. |
-
+| Form | `'submit'` | | Fired when a `<form>` is submitted by clicking on a button with `type="submit"`. |
 
 #### Form Fields
 

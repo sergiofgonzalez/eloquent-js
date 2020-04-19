@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- OpenIconic Icons -->
+    <link rel="stylesheet" href="stylesheets/open-iconic/font/css/open-iconic-bootstrap.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/styles1.css">
+
+    <title>Example 6 &mdash; Hello &lt;form&gt;</title>
+  </head>
+  <body>
+    <h1>Form Fields: <code>&lt;form&gt;</code></h1>
+
+    <form action="example/submit.html">
+      <!-- Name input textfield -->
+      <div class="form-group">
+        <label for="inputName1">Name</label>
+        <input class="form-control" type="text" name="name" id="inputName1" aria-describedby="nameHelp">
+        <small id="nameHelp" class="form-text text-muted">Type your username</small>
+      </div>
+
+      <!-- Password input textfield -->
+      <div class="form-group">
+        <label for="inputPassword1">Password</label>
+        <input class="form-control" type="password" name="password" id="inputPassword1" aria-describedby="passwordHelp">
+        <small id="passwordHelp" class="form-text text-muted">Type your password</small>
+      </div>
+
+      <!-- Log in button -->
+      <button type="submit" class="btn btn-primary">Log in</button>
+    </form>
+
+
+    <dl style="margin-top: 20px;">
+      <dt>Instructions</dt>
+      <dd>
+        Open the console pressing <code>F12</code> to obtain additional information.
+      </dd>
+    </dl>
+
+    <!-- JavaScript-->
+    <script src="javascript/app.mjs" type="module"></script>    
+  </body>
+</html>
