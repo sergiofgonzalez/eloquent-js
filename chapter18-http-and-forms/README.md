@@ -398,7 +398,7 @@ Practising radio buttons.
 | `innerHeight` | Returns the height of the window. |
 | `innerWidth` | Returns the width of the window. |
 | `postMessage(data)` | Sends a `'message'` event from a *web worker* to the main script with an event with the data encoded in the `'data'` property of the event. |
-| const worker = new Worker(path) | Instantiated a new *web worker*. |
+| `const worker = new Worker(path);` | Instantiates a new *web worker*. |
 | `{worker}.postMessage(data)` | Sends a `'message'` event to a worker. The event `'data'` property will include the given information. |
 | `encodeURIComponent(textToEncode)` | URI encodes the given information (for query string encoding). |
 | `decodeURIComponent(textToDecode)` | URI decodes the given encoded information (for query string decoding). |
@@ -481,8 +481,8 @@ Practising radio buttons.
 | Load Events | `'load'` | | Fired when the document has finished loading. |
 |              | `'beforeunload'` | | Fired before the user navigates away from a window. |
 | Message Events | `'message'` | | Fired when main script communicates with a *web worker* and vice versa. |
-|                |             | postMessage(data) | Method to send data from a *Web worker* to the main script. |
-|                |             | {worker}.postMessage(data) | Method to send data from a the main script to the given *web worker*. |
+|                |             | `postMessage(data)` | Method to send data from a *Web worker* to the main script. |
+|                |             | `{worker}.postMessage(data)` | Method to send data from a the main script to the given *web worker*. |
 | Timer Events | | `setTimeout(cb, delayMillis, arg1, arg2, ...)` | Schedules a callback to be invoked after the given delay. Returns a *timerId* that can be used to cancel a scheduled callback. |
 |              | | `clearTimeout(timerId)` | De-schedules a callback previously scheduled with a `setTimeout()` |
 |              | | `cancelAnimationFrame()` | De-schedules a previous call to `requestAnimationFrame` |
@@ -500,8 +500,17 @@ Practising radio buttons.
 
 | Type | Element | Property | Description |
 | :--- | :------ | :------- | :---------- |
-| Text Field | `<input type="text">`\`<input type="password">`\`<input type="email">`\`<textarea>` | `value` | Holds the current content of the field as a string. |
-| Text Field | `<input type="text">`\`<input type="password">`\`<input type="email">`\`<textarea>` | `selectionStart` | Holds the initial position of the text selection in a text field. |
-| Text Field | `<input type="text">`\`<input type="password">`\`<input type="email">`\`<textarea>` | `selectionEnd` | Holds the end position of the text selection in a text field. |
+| Text Field | `<input type="text">`\
+`<input type="password">`\
+`<input type="email">`\
+`<textarea>` | `value` | Holds the current content of the field as a string. |
+| Text Field | `<input type="text">`\
+`<input type="password">`\
+`<input type="email">`\
+`<textarea>` | `selectionStart` | Holds the initial position of the text selection in a text field. |
+| Text Field | `<input type="text">`\
+`<input type="password">`\
+`<input type="email">`\
+`<textarea>` | `selectionEnd` | Holds the end position of the text selection in a text field. |
 | Checkbox | `<input type="checkbox">` | `checked` | Holds a boolean value that indicates if the checkbox is checked or not. |
 | Radio Button | `<input type="radio" name="radioGroup" value="radioValue">` | `value` | Holds the value of a radio button (e.g. `'radioValue'`). |
