@@ -500,17 +500,8 @@ Practising radio buttons.
 
 | Type | Element | Property | Description |
 | :--- | :------ | :------- | :---------- |
-| Text Field | `<input type="text">`\
-`<input type="password">`\
-`<input type="email">`\
-`<textarea>` | `value` | Holds the current content of the field as a string. |
-| Text Field | `<input type="text">`\
-`<input type="password">`\
-`<input type="email">`\
-`<textarea>` | `selectionStart` | Holds the initial position of the text selection in a text field. |
-| Text Field | `<input type="text">`\
-`<input type="password">`\
-`<input type="email">`\
-`<textarea>` | `selectionEnd` | Holds the end position of the text selection in a text field. |
+| Text Field | `<input type="text">`<br>`<input type="password">`<br>`<input type="email">`<br>`<textarea>` | `value` | Holds the current content of the field as a string. |
+| Text Field | `<input type="text">`<br>`<input type="password">`<br>`<input type="email">`<br>`<textarea>` | `selectionStart` | Holds the initial position of the text selection in a text field. |
+| Text Field | `<input type="text">`<br>`<input type="password">`<br>`<input type="email">`<br>`<textarea>` | `selectionEnd` | Holds the end position of the text selection in a text field. |
 | Checkbox | `<input type="checkbox">` | `checked` | Holds a boolean value that indicates if the checkbox is checked or not. |
 | Radio Button | `<input type="radio" name="radioGroup" value="radioValue">` | `value` | Holds the value of a radio button (e.g. `'radioValue'`). |
