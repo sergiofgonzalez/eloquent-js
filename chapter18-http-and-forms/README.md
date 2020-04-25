@@ -239,6 +239,89 @@ Submitting a form means the browser will navigate to the page indicated by the f
 
 Intercepting `'submit'` events in JavaScript has very interesting use cases such as validating forms before being submitted, or even sending the information to the server without reloading the page.
 
+### Text Fields
+Fields created by `<textarea>` tags, or `<input>` tags with a type `"text"` or `"password"` or `"email"` share a common interface. Their DOM elements have a `value` property that holds their current content as a string value. Setting this property to another string changes the field's content.
+
+The `selectionStart` and `selectionEnd` properties of text fields give the information about the cursor and selection in the text.
+
+The following example illustrates how you can insert a sequence of characters in the current cursor position of a text area pressing the key *F12*:
+
+```html
+<textarea></textarea>
+<script>
+  const textarea = document.querySelector('textarea');
+  textarea.addEventListener('keydown', evt => {
+    if (evt.key == 'F12') {
+      replaceSelection(textarea, 'Khasekhemwy');
+      evt.preventDefault();
+    }
+  });
+
+  function replaceSelection(field, word) {
+    const from = field.selectionStart;
+    const to = field.selectionEnd;
+    field.value = `${ field.value.slice(0, from) }${ word }${ field.value.slice(to) }`;
+
+    // put the cursor after the word recently inserted
+    field.selectionStart = from + word.length;
+    field.selectionEnd = from + word.length;
+  }
+<script>
+```
+
+The `'change'` event for a text field is fired when the field loses focus after its content is changed. The `'input'` event is triggered every time the user interacts with the field to manipulate the field's content.
+
+```html
+<input type="text">Length: <span id="length">0</span>
+<script>
+  const text = document.querySelector('input');
+  const output = document.querySelector('#length');
+
+  text.addEventListener('input', () => {
+    output.textContent = text.value.length;
+  });
+</script>
+```
+
+### Checkboxes
+A checkbox field is a binary toggle. Its value can be extracted or changed throught its `checked` property.
+
+```javascript
+const checkbox = document.querySelector('input');
+checkbox.addEventListener('change', () => {
+  document.body.style.background = checkbox.checked ? 'mediumpurple': '';
+});
+```
+
+### Radio buttons
+A radio button is similar to a checkbox, but it's implicitly linked to other radio buttons with the same `name` attribute, so that only one of them can be active at any given time.
+
+```html
+Color:
+<label>
+  <input type="radio" name="color" value="orange"> Orange
+</label>
+<label>
+  <input type="radio" name="color" value="lightgreen"> Green
+</label>
+<label>
+  <input type="radio" name="color" value="lightblue"> Blue
+</label>
+<script>
+  const radios = document.querySelectorAll('[name=color]');
+  for (let radio of [...radios]) {
+    radio.addEventListener('change', () => {
+      document.body.style.background = radio.value;
+    });
+  }
+</script>
+```
+
+| NOTE: |
+| :---- |
+| The statement `document.querySelectorAll('[name=color]')` returns an array-like structure with all the elements in the document whose `name` attribute matches `"color"`. |
+
+
 ## Examples and Exercises
 
 ### [01 &mdash; Form Fields: Hello!](./01-form-fields-hello/)
@@ -258,6 +341,18 @@ Illustrates the `disabled` attribute.
 
 ### [06 &mdash; Form Fields: Hello, `<form>`](./06-form-fields-hello-form/)
 Illustrates several concepts about the `<form>` as a whole such as using the `form.elements` property and the registration of an event listener for the `submit` event.
+
+### [07 &mdash; Form Fields: Hello, Text Fields](./07-form-fields-hello-text-fields/)
+Practising basic concepts of `<input type="text">` and `<textarea>`. 
+
+### [08 &mdash; Form Fields: Text Fields &raquo; `input` and `change`](./08-form-fields-text-fields-input-and-change/)
+Practising management on `input` and `change` events.
+
+### [09 &mdash; Hello, `<checkbox>`](./09-form-fields-checkbox/)
+Practising checkboxes.
+
+### [10 &mdash; Hello, Radio Buttons](./10-form-fields-radio-buttons/)
+Practising radio buttons.
 
 ## Cheat Sheet
 
@@ -364,7 +459,8 @@ Illustrates several concepts about the `<form>` as a whole such as using the `fo
 |            |             | `shiftKey` | Holds true if *SHIFT* key is pressed down, false otherwise. |
 |            |             | `altKey`   | Holds true if *ALT* key is pressed down, false otherwise. |
 |            |             | `metaKey`  | Holds true if *META* key is pressed down, false otherwise. |
-|            |             | `key`      | Holds the key that has been pressed down (e.g. 's'). |
+|            |             | `key`      | Holds the key that has been pressed down (e.g. `'s'`). |
+|            |             | `keyCode`  | Holds the numericKeycode corresponding to the key that has been pressed down (e.g. `113`). |
 | Mouse Events | `'mousedown'` | | Fired when any of the mouse buttons is pressed down. |
 |              | `'mouseup'` | | Fired when any of the mouse buttons is released. |
 |              | `'click'`   | | Fired on the most specific node that contained both the press and release of the button. |
@@ -393,8 +489,19 @@ Illustrates several concepts about the `<form>` as a whole such as using the `fo
 |              | | `setInterval(cb, delayMillis, arg1, arg2, ...)` | Schedules a callback to be invoked repeatedly according to the given frequency details. |
 |              | | `setInterval(cb, delayMillis, arg1, arg2, ...)` | Schedules a callback to be invoked repeatedly according to the given frequency details. Returns an *intervalId* that can be used to cancel the timer. |
 |              | | `clearInterval(intervalid)` | De-schedules a previous call to `setInterval()`. |
-| Form Field Events | `'change'` |  | Fired whenever the value of a form field changes. |
-| Form | `'submit'` | | Fired when a `<form>` is submitted by clicking on a button with `type="submit"`. |
+| Form Field Events | `'change'` |  | Fired after the content of a field loses focus after its content was changed. |
+| Form Events | `'submit'` | | Fired when a `<form>` is submitted by clicking on a button with `type="submit"`. |
+| Text Field Events | `'change'` | | Fired after the content of an `<input>` or `<textarea>` loses focus after its content was changed. |
+|                   | `'input'` | | Fired everytime the user manipulates an `<input>` or `<textarea>` element to change the field's contents. |
+| Checkbox Events | `'change'` | | Fired when the status of an `<input type="checkbox">` changes. |
+| Radio Button Events | `'change'` | | fired when the status of a collection of radio buttons `<input type="radio"...>` changes. |
 
 #### Form Fields
 
+| Type | Element | Property | Description |
+| :--- | :------ | :------- | :---------- |
+| Text Field | `<input type="text">`\`<input type="password">`\`<input type="email">`\`<textarea>` | `value` | Holds the current content of the field as a string. |
+| Text Field | `<input type="text">`\`<input type="password">`\`<input type="email">`\`<textarea>` | `selectionStart` | Holds the initial position of the text selection in a text field. |
+| Text Field | `<input type="text">`\`<input type="password">`\`<input type="email">`\`<textarea>` | `selectionEnd` | Holds the end position of the text selection in a text field. |
+| Checkbox | `<input type="checkbox">` | `checked` | Holds a boolean value that indicates if the checkbox is checked or not. |
+| Radio Button | `<input type="radio" name="radioGroup" value="radioValue">` | `value` | Holds the value of a radio button (e.g. `'radioValue'`). |
