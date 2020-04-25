@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- OpenIconic Icons -->
+    <link rel="stylesheet" href="stylesheets/open-iconic/font/css/open-iconic-bootstrap.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/styles1.css">
+
+    <title>Example 11 &mdash; Hello, Select Multiple field</title>
+  </head>
+  <body>
+    <h1>Form Fields: Hello, <code>&lt;select multiple&gt;</code></h1>
+
+    <!-- Select Multiple -->
+    <div class="form-group">
+      <label for="select1">Binary Pattern</label>
+      <select class="form-control" id="select1" multiple>
+        <option value="1">0001</option>
+        <option value="2">0010</option>
+        <option value="4">0100</option>
+        <option value="8">1000</option>
+      </select> = <span class="badge badge-primary" id="output">0</span>
+    </div>
+
+    <!-- Select -->
+    <div class="form-group">
+      <label for="select2">No behavior</label>
+      <select class="form-control" id="select2">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="4">Three</option>
+        <option value="8">Four</option>
+      <select></select>
+    </div>    
+
+    <dl style="margin-top: 20px;">
+      <dt>Instructions</dt>
+      <dd>
+        Interact with the Multiple Select field. The simple <code>&lt;select&gt;</code> implements
+        no behavior but has been included to illustrate how it looks.
+      </dd>
+    </dl>
+
+    <!-- JavaScript-->
+    <script src="javascript/app.mjs" type="module"></script>    
+  </body>
+</html>

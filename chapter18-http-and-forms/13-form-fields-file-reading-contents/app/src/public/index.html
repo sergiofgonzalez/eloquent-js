@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- OpenIconic Icons -->
+    <link rel="stylesheet" href="stylesheets/open-iconic/font/css/open-iconic-bootstrap.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/styles1.css">
+
+    <title>Example 13 &mdash; Hello, File Field &raquo; Reading the contents of a file</title>
+  </head>
+  <body>
+    <h1>Form Fields: Reading the contents of a file selected via <code>&lt;input type="file"&gt;</code></h1>
+
+    <!-- File Field -->
+    <div class="form-group">
+      <label for="inputFile1">Select Files</label>
+      <input type="file" class="form-control-file" id="inputFile1" multiple>
+      <span class="badge badge-primary" id="contents">(nothing yet)</span>
+    </div>
+    
+    <dl style="margin-top: 20px;">
+      <dt>Instructions</dt>
+      <dd>
+        Interact with the File field and the first 20 characters from the file will be displayed above.
+      </dd>
+    </dl>
+
+    <!-- JavaScript-->
+    <script src="javascript/app.mjs" type="module"></script>    
+  </body>
+</html>

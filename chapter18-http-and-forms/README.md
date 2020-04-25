@@ -321,6 +321,94 @@ Color:
 | :---- |
 | The statement `document.querySelectorAll('[name=color]')` returns an array-like structure with all the elements in the document whose `name` attribute matches `"color"`. |
 
+### Select Fields
+*Select fields* are conceptually similar to radio buttons in the sense that they allow the user to choose from a set of options. Also, when given the `multiple` attribute, a `<select>` tag will allow the user to select any number of options (as if it were a set of checkboxes).
+
+Each `<option>` tag has a value defined with the `value` attribute. When the `value` is not given, the text inside the `<option>` tag will count as its value.
+The `value` property of the `<select>` element reflects the currently selected option when the `multiple` option is not used. The `<option>` tag for a `<select>` field can be accessed as an array-like object through the field's options property. Each option has a property called `selected` which indicates whether that option is currently selected.
+
+```html
+<select multiple>
+  <option value="1">0001</option>
+  <option value="2">0010</option>
+  <option value="4">0100</option>
+  <option value="8">1000</option>      
+</select> = <span id="output">0</span>
+<script>
+  const select = document.querySelector('select');
+  const output = document.querySelector('#output');
+
+  select.addEventListener('change', () => {
+    let number = 0;
+    for (let option of Array.from(select.options)) {
+      if (option.selected) {
+        number += Number(option.value);
+      }
+    }
+    output.textContent = number;
+  });  
+</script>
+```
+
+### File Fields
+File fields do have two common uses:
++ let the user upload a file from the user's machine through a form
++ allow a JavaScript program running in the browser read a file from the user's machine
+
+
+```html
+<input type="file">
+<script>
+  const input = document.querySelector('input');
+  
+  input.addEventListener('change', () => {
+    if (input.files.length > 0) {
+      const file = input.files[0];
+      const msg = `${ file.name } (${ file.type ?? 'no file type detected' }); ${ file.size ?? 'file size not detected '} bytes`;
+      console.log(msg);
+    }
+  });  
+</script>
+```
+
+The `files` property of a file field element is an array-like object containing the files chosed in the field. The reason for `files` being an array is because file field supports the variant `<input type="field" multiple>` which makes it possible to select multiple files at the same time.
+
+The contents of a file selected by the user can be obtained following this approach:
+
+```html
+<input type="file" multiple>
+<script>
+  const input = document.querySelector('input');
+  const contents = document.querySelector('#contents');
+
+  input.addEventListener('change', () => {
+    for (let file of [...input.files]) {
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        console.log(`File ${ file.name } starts with '${ reader.result.slice(0, 20 ) }'`);
+      });
+      reader.readAsText(file);
+    }
+  });
+</script>
+```
+
+This approach was developed before *promises* became a part of the language. Therefore, you might want to wrap the reading in a function that returns a promise with the file contents:
+
+```javascript
+function readFileText(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => resolve(reader.result));
+    reader.addEventListener('error', () => reject(reader.error));
+    reader.readAsText(file);
+  });
+}
+
+export default readFileText;
+```
+
+Note that `FileReader` fires and `'error'` event when reading the file fails for any reason. The error object itself will end up in the reader's `error` property.
 
 ## Examples and Exercises
 
@@ -353,6 +441,18 @@ Practising checkboxes.
 
 ### [10 &mdash; Hello, Radio Buttons](./10-form-fields-radio-buttons/)
 Practising radio buttons.
+
+### [11 &mdash; Hello, Select Multiple Field](./11-form-fields-select/)
+Practising `<select>` and `<select multiple>`.
+
+### [12 &mdash; Hello, File Field](./12-form-fields-file/)
+Practising `<input type="file">`.
+
+### [13 &mdash; Reading contents of a file](./13-form-fields-file-reading-contents/)
+Illustrating how to read the contents of a file selected via a file field.
+
+### [14 &mdash; Reading contents of a file with a promise-based approach](./14-form-fields-file-reading-contents-promise/)
+Same as above, but using a promise-based approach to read the contents.
 
 ## Cheat Sheet
 
@@ -405,6 +505,8 @@ Practising radio buttons.
 | `fetch(uri, options)` | Returns a promise that resolves to a *Response* object holding information about the server's response, such as its status code and headers. The headers are wrapped in a *map-like* object that treats its keys as case-insensitive. It features a `text()` and `json()` methods that returns a promise to the response body in text or JSON. The options object can be used to send an specific method (like `POST`) setting up specific headers or sending a body. See https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options for details. |
 | `{form}.elements` | Returns an object with the form fields that can be accessed as an array and also as a map. |
 | `{node}.form` | For a field in a form, returns the form element on which the field is enclosed. |
+| `const reader = new FileReader(file)` | Instantiates a `FileReader` object to asynchronously read the contents of a file stored in the user's machine, previously selected through an `<input type="file">` element. |
+| `{reader}.readAsText()` | Initiates the reading of the file. A `'load'` event will be triggered when the file has been completely loaded. |
 
 ### CSS/Styling Basics
 
@@ -494,14 +596,25 @@ Practising radio buttons.
 | Text Field Events | `'change'` | | Fired after the content of an `<input>` or `<textarea>` loses focus after its content was changed. |
 |                   | `'input'` | | Fired everytime the user manipulates an `<input>` or `<textarea>` element to change the field's contents. |
 | Checkbox Events | `'change'` | | Fired when the status of an `<input type="checkbox">` changes. |
-| Radio Button Events | `'change'` | | fired when the status of a collection of radio buttons `<input type="radio"...>` changes. |
+| Radio Button Events | `'change'` | | Fired when the status of a collection of radio buttons `<input type="radio"...>` changes. |
+| Select/Select Multiple Events | `'change'` | | Fired when the status of a `<select>` or `<select multiple>` changes. | 
+| File Field Events | `'change'` | | Fired when the user ends manipulating a `<input type="field">`. |
+|                   | | `files` | Points to an array-like structure containing an object for each of the files the user has selected. <br> Each of the objects feature a `'name'`, `'type'` and `'size'` properties. |
+| File Reader Events | `'load'` | | Fired when the `FileReader` read operation has completed. |
+| File Reader Events | `'error'` | | Fired when the `FileReader` read operation fails for any reason. |
 
 #### Form Fields
 
 | Type | Element | Property | Description |
 | :--- | :------ | :------- | :---------- |
 | Text Field | `<input type="text">`<br>`<input type="password">`<br>`<input type="email">`<br>`<textarea>` | `value` | Holds the current content of the field as a string. |
-| Text Field | `<input type="text">`<br>`<input type="password">`<br>`<input type="email">`<br>`<textarea>` | `selectionStart` | Holds the initial position of the text selection in a text field. |
-| Text Field | `<input type="text">`<br>`<input type="password">`<br>`<input type="email">`<br>`<textarea>` | `selectionEnd` | Holds the end position of the text selection in a text field. |
+| | | `selectionStart` | Holds the initial position of the text selection in a text field. |
+| | | `selectionEnd` | Holds the end position of the text selection in a text field. |
 | Checkbox | `<input type="checkbox">` | `checked` | Holds a boolean value that indicates if the checkbox is checked or not. |
 | Radio Button | `<input type="radio" name="radioGroup" value="radioValue">` | `value` | Holds the value of a radio button (e.g. `'radioValue'`). |
+| Select/Select Multiple | `<select>`<br>`<select multiple>` | `options` | Array-like object that points to the `<option>` elements of a `<select>` element. |
+| | | `value` | Holds the value of a given `<option>` of a `<select>`, or the currently value selected in the case of a non-multiple `<select>` (not useful for `<select multiple>`). |
+| | | `selected` | Holds a boolean showing whether a particular `<option>` of a `<select>` element is currently selected. |
+| File Field | `<input type="file">`<br>`<input type="file" multiple>` | `files` | Array-like object that points the files selected by the user. |
+
+
