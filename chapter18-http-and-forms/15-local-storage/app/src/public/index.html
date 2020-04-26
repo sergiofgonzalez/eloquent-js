@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- OpenIconic Icons -->
+    <link rel="stylesheet" href="stylesheets/open-iconic/font/css/open-iconic-bootstrap.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/styles1.css">
+
+    <title>Example 15 &mdash; Hello, `localStorage` &raquo; Simple note-taking app</title>
+  </head>
+  <body>
+    <h1>Hello <code>localStorage</code>: Simple note-taking app</h1>
+
+    <form>
+      <div class="form-group">
+        <label for="select1">Notes</label>
+        <select class="form-control" id="select1"></select>
+      </div>
+      <button class="btn btn-primary">Add</button>
+      <div class="form-group" style="margin-top: 2rem;">
+        <label for="textarea1">Note Contents</label>
+        <textarea class="form-control" style="width: 100%;" id="textarea1"></textarea>
+      </div>      
+    </form>
+
+    <dl style="margin-top: 20px;">
+      <dt>Instructions</dt>
+      <dd>
+        Use the Select field to select and edit your note.
+      </dd>
+      <dd>
+        Click add to create a new empty note from scratch.
+      </dd>      
+    </dl>
+
+    <!-- JavaScript-->
+    <script src="javascript/app.mjs" type="module"></script>    
+  </body>
+</html>

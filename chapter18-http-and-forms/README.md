@@ -410,6 +410,65 @@ export default readFileText;
 
 Note that `FileReader` fires and `'error'` event when reading the file fails for any reason. The error object itself will end up in the reader's `error` property.
 
+### Storing Data Client-Side
+As JavaScript bindings are recreated every time the page is closed or reloaded, you need additional mechanisms to keep data in the browser.
+
+The `localStorage` object can be used to store data in the browser in a way that survives page reloads. A value in `localStorage` sticks around until it is overwritten, removed with `removeItem` or until the user clears their local data.
+
+```javascript
+localStorage.setItem('greeting', 'Hello to Jason Isaacs!');
+console.log(localStorage.getItem('greeting'));
+localStorage.removeItem('greeting');
+```
+
+Sites from different domains get different storage compartments. Therefore, data stored in localStorage by a given website can only be read and overwritten only by scripts on that same site.
+
+The following code implements a very simple note-taking application that saves the state in the local storage:
+
+```html
+Notes: <select></select> <button>Add</button><br>
+<textarea style="width: 100%"></textarea>
+<script>
+  const list = document.querySelector('select');
+  const note = document.querySelector('textarea');
+
+  let state;
+
+  function setState(newState) {
+    list.textContent = '';
+    for (let name in newState.notes) {
+      const option = document.createElement('option');
+      option.textContent = name;
+      if (newState.selected == name) {
+        option.selected = true;
+      }
+      list.appendChild(option);
+    }
+    note.value = newState.notes[newState.selected];
+
+    localStorage.setItem('Notes', JSON.stringify(newState));
+    state = newState;
+  }
+
+  setState(JSON.parse(localStorage.getItem('Notes')) ?? { notes: { 'shopping list': 'Carrots\nRaising'}, selected: 'shopping list' });
+
+  list.addEventListener('change', () => {
+    setState({ notes: state.notes, selected: list.value });
+  });
+
+  note.addEventListener('change', () => {
+    setState({ notes: Object.assign({}, state.notes, { [state.selected]: note.value }), selected: state.selected });
+  });
+
+  document.querySelector('button').addEventListener('click', () => {
+    const name = prompt('Note Title');
+    if (name) {
+      setState({ notes: Object.assign({}, state.notes, {[name]: '' }), selected: name});
+    }
+  });
+</script>
+```
+
 ## Examples and Exercises
 
 ### [01 &mdash; Form Fields: Hello!](./01-form-fields-hello/)
@@ -453,6 +512,9 @@ Illustrating how to read the contents of a file selected via a file field.
 
 ### [14 &mdash; Reading contents of a file with a promise-based approach](./14-form-fields-file-reading-contents-promise/)
 Same as above, but using a promise-based approach to read the contents.
+
+### [15 &mdash; Hello, `localStorage`](./15-local-storage/)
+Practising `localStorage` with a simple note-taking application.
 
 ## Cheat Sheet
 
@@ -507,6 +569,10 @@ Same as above, but using a promise-based approach to read the contents.
 | `{node}.form` | For a field in a form, returns the form element on which the field is enclosed. |
 | `const reader = new FileReader(file)` | Instantiates a `FileReader` object to asynchronously read the contents of a file stored in the user's machine, previously selected through an `<input type="file">` element. |
 | `{reader}.readAsText()` | Initiates the reading of the file. A `'load'` event will be triggered when the file has been completely loaded. |
+| `localStorage.setItem(name, value)` | Stores in the browser's local storage an item with the given name and value. |
+| `localStorage.getItem(name)` | Retrieves from the browser's local storage the item previously stored and associated with the given name. |
+| `localStorage.removeItem(name, value)` | Removes from the browser's local storage the item with the given name. |
+
 
 ### CSS/Styling Basics
 
